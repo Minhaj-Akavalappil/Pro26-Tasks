@@ -1,0 +1,23 @@
+Intuition
+To find the median of two sorted arrays, we need to efficiently combine the arrays while maintaining their sorted order. The median is the middle element of the combined array if the total number of elements is odd, or the average of the two middle elements if the total is even. Given the constraint of O(log(m+n)) time complexity, a brute-force merge approach would be too slow, so we need a more efficient method.
+
+Approach
+Binary Search on the Smaller Array:
+We perform a binary search on the smaller array to partition both arrays such that the left half contains elements smaller than or equal to the right half.
+
+This ensures we can find the median without merging the arrays explicitly, thus optimizing the time complexity.
+
+Partition Validation:
+For each partition, we check if the maximum element on the left side of both arrays is less than or equal to the minimum element on the right side.
+
+If the partition is valid, we calculate the median based on whether the total number of elements is odd or even.
+
+Edge Handling:
+Properly handle cases where partitions are at the boundaries of the arrays using infinity values to avoid index errors.
+
+Complexity
+Time complexity:
+O(log(min(m, n))), where m and n are the lengths of the two arrays. This is because we perform binary search on the smaller array.
+
+Space complexity:
+O(1), as we use only a constant amount of extra space.
