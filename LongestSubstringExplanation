@@ -1,0 +1,22 @@
+Intuition
+The problem requires finding the length of the longest substring without repeating characters. A substring is a contiguous sequence of characters within a string. The challenge is to efficiently track characters and ensure no duplicates exist in the current window of the string being considered.
+
+Approach
+To solve this problem, we can use the sliding window technique, which is optimal for substring-related problems. The idea is to maintain a window of characters that doesn't contain any duplicates. Here's the step-by-step approach:
+
+Initialize a Set and Pointers: Use a set to keep track of characters in the current window. Initialize two pointers, left and right, to represent the start and end of the window, respectively. Also, initialize max_length to store the result.
+
+Expand the Window: Move the right pointer to include new characters in the window. For each new character at s[right], check if it's already in the set.
+
+Handle Duplicates: If the character is found in the set, it means there's a duplicate. Move the left pointer to the right, removing characters from the set until the duplicate character is no longer in the set.
+
+Update the Set and Maximum Length: Add the current character to the set and update max_length if the current window size (right - left + 1) is larger than the previously recorded maximum.
+
+Return the Result: After processing all characters, max_length will hold the length of the longest substring without repeating characters.
+
+Complexity
+Time complexity:
+O(n), where n is the length of the string. Each character is processed exactly once by the right pointer and at most once by the left pointer.
+
+Space complexity:
+O(min(m,n)), where m is the size of the character set (e.g., ASCII characters). In the worst case, the set can store all unique characters of the string.
